@@ -21,13 +21,16 @@ RUN apt update && \
     git clone https://huggingface.co/THUDM/chatglm3-6b && \
     git clone https://huggingface.co/BAAI/bge-large-zh
 
-
 COPY . .
 
 RUN python3 copy_config_example.py && \
     python init_database.py --recreate-vs
 
-CMD python startup.py -a
+WORKDIR /usr/local/data/chatchat/Langchain-Chatchat-master
+
+RUN cp -r /app/chatglm3-6b/  /app/bge-large-zh/ .
+
+CMD /bin/bash
 
 
 
