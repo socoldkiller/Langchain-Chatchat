@@ -28,8 +28,6 @@ RUN python3 copy_config_example.py && \
 
 WORKDIR /usr/local/data/chatchat/Langchain-Chatchat-master
 
-RUN cp -r /app/chatglm3-6b/  /app/bge-large-zh/ .
-
 CMD /bin/bash
 
 
